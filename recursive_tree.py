@@ -10,8 +10,8 @@ def main_setup():
 
 
 def main_draw():
-    background(0)
 
+    background(0)
     # move origin to center of window
     translate(window_width * 0.5, window_height)
 
@@ -28,6 +28,7 @@ scale_right = 0.9
 
 
 def tree(depth):
+
     if depth == 0:
         fill(0, 255, 0)
         circle(0, 0, 20)
@@ -42,7 +43,7 @@ def tree(depth):
     # draw the left subtree
     push_matrix()
     scale(scale_left, scale_left)
-    rotate_z(rotation_left)
+    rotate_z(rotation_left - (mouse_y * 0.001))
     tree(depth - 1)
     pop_matrix()
 
